@@ -91,7 +91,8 @@ pipeline {
 
                     echo "=== Composer Audit (fail on vulnerabilities) ==="
                     # Exit non-zero jika ada advisory → pipeline FAILURE
-                    composer audit --no-interaction
+                    # --ignore-unreachable: jangan gagal jika packagist.org tidak terjangkau (env CI terisolasi)
+                    composer audit --no-interaction --ignore-unreachable
                     echo "=== Composer Audit OK (no known vulnerabilities) ==="
                 '''
             }
