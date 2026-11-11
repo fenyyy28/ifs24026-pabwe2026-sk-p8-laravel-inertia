@@ -22,6 +22,11 @@ class Post extends Model
 
     protected $appends = ['cover_url'];
 
+    protected static function newFactory(): PostFactory
+    {
+        return PostFactory::new();
+    }
+
     protected function casts(): array
     {
         return [
