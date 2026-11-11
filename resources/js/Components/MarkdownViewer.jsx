@@ -1,14 +1,9 @@
-import Viewer from '@toast-ui/editor/dist/toastui-editor-viewer';
-import '@toast-ui/editor/dist/toastui-editor-viewer.css';
-import { useEffect, useRef } from 'react';
+import { Markdown } from '@uiw/react-md-editor';
 
 export default function MarkdownViewer({ value }) {
-    const el = useRef(null);
-
-    useEffect(() => {
-        const viewer = new Viewer({ el: el.current, initialValue: value || '' });
-        return () => viewer.destroy();
-    }, [value]);
-
-    return <div ref={el} />;
+    return (
+        <div data-color-mode="light">
+            <Markdown source={value || ''} />
+        </div>
+    );
 }

@@ -1,24 +1,16 @@
-import Editor from '@toast-ui/editor';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import { useEffect, useRef } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 
-export default function MarkdownEditor({ value, onChange, height = '420px' }) {
-    const el = useRef(null);
-    const onChangeRef = useRef(onChange);
-    onChangeRef.current = onChange;
+export default function MarkdownEditor({ value, onChange, height = 420 }) {
+    const heightNum = typeof height === 'string' ? parseInt(height, 10) || 420 : height;
 
-    useEffect(() => {
-        const editor = new Editor({
-            el: el.current,
-            height,
-            initialEditType: 'markdown',
-            previewStyle: 'vertical',
-            initialValue: value || '',
-            events: { change: () => onChangeRef.current(editor.getMarkdown()) },
-        });
-        return () => editor.destroy();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    return <div ref={el} />;
+    return (
+        <div data-color-mode="light">
+            <MDEditor
+                value={value || ''}
+                onChange={(v) => onChange(v ?? '')}
+                height={heightNum}
+                preview="live"
+            />
+        </div>
+    );
 }
