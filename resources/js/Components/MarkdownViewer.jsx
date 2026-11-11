@@ -1,9 +1,9 @@
-import { Markdown } from '@uiw/react-md-editor';
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 export default function MarkdownViewer({ value }) {
     return (
         <div data-color-mode="light">
-            <Markdown source={value || ''} />
+            <MarkdownPreview source={value || ''} />
         </div>
     );
 }
