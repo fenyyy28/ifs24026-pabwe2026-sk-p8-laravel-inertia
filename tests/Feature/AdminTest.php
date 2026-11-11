@@ -75,7 +75,12 @@ class AdminTest extends TestCase
         $author = User::factory()->create(['username' => 'penulis']);
         Post::factory()->for($author)->create();
 
-        $this->actingAs($this->admin)->get('/admin/posts/export')->assertOk()->assertDownload('semua-artikel.xlsx');
-        $this->actingAs($this->admin)->get("/admin/users/{$author->id}/posts/export")->assertOk()->assertDownload('artikel-penulis.xlsx');
+        $all = $this->actingAs($this->admin)->get('/admin/posts/export');
+        $all->assertOk()->assertDownload('semua-artikel.xlsx');
+        $this->assertNotSame('', $all->streamedContent());
+
+        $mine = $this->actingAs($this->admin)->get("/admin/users/{$author->id}/posts/export");
+        $mine->assertOk()->assertDownload('artikel-penulis.xlsx');
+        $this->assertNotSame('', $mine->streamedContent());
     }
 }
