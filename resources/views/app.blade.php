@@ -11,6 +11,7 @@
     @inertiaHead
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
+    <div id="boot" style="padding:2rem;font:16px/1.5 Georgia,serif;color:#1e293b">BlogVerse Pro — memuat halaman…</div>
     @inertia
 </body>
 </html>
