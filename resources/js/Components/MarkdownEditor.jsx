@@ -1,37 +1,16 @@
-import { useEffect, useRef } from 'react';
+import MDEditor from '@uiw/react-md-editor';
 
-/** Editor dimuat dinamis; hanya diunduh saat modal tulis/ubah dibuka. */
-export default function MarkdownEditor({ value, onChange, height = '420px' }) {
-    const el = useRef(null);
-    const onChangeRef = useRef(onChange);
-    onChangeRef.current = onChange;
+export default function MarkdownEditor({ value, onChange, height = 420 }) {
+    const heightNum = typeof height === 'string' ? parseInt(height, 10) || 420 : height;
 
-    useEffect(() => {
-        let editor;
-        let cancelled = false;
-
-        Promise.all([
-            import('@toast-ui/editor'),
-            import('@toast-ui/editor/dist/toastui-editor.css'),
-        ]).then(([mod]) => {
-            if (cancelled || !el.current) return;
-            const Editor = mod.default;
-            editor = new Editor({
-                el: el.current,
-                height,
-                initialEditType: 'markdown',
-                previewStyle: 'vertical',
-                initialValue: value || '',
-                events: { change: () => onChangeRef.current(editor.getMarkdown()) },
-            });
-        });
-
-        return () => {
-            cancelled = true;
-            editor?.destroy();
-        };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    return <div ref={el} className="min-h-24" />;
+    return (
+        <div data-color-mode="light">
+            <MDEditor
+                value={value || ''}
+                onChange={(v) => onChange(v ?? '')}
+                height={heightNum}
+                preview="live"
+            />
+        </div>
+    );
 }

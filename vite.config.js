@@ -15,6 +15,18 @@ export default defineConfig({
     build: {
         sourcemap: true,
         chunkSizeWarningLimit: 1500,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    // React core — cached terpisah, jarang berubah
+                    'vendor-react': ['react', 'react-dom'],
+                    // Inertia
+                    'vendor-inertia': ['@inertiajs/react'],
+                    // Markdown editor (besar, lazy-loadable)
+                    'vendor-md-editor': ['@uiw/react-md-editor', '@uiw/react-markdown-preview'],
+                },
+            },
+        },
     },
     server: {
         watch: { ignored: ['**/storage/framework/views/**'] },

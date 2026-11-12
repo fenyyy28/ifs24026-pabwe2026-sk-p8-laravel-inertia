@@ -9,7 +9,9 @@ export default function PostIndex({ posts, filters }) {
 
     return (
         <>
-            <Head title="Beranda" />
+            <Head title="Beranda">
+                <meta name="description" content="BlogVerse Pro — platform publikasi artikel. Baca bebas tanpa akun, atau bergabung sebagai penulis dan terbitkan gagasanmu." />
+            </Head>
             <section className="mb-10 rounded-2xl bg-gradient-to-br from-indigo-700 to-violet-600 px-8 py-12 text-white">
                 <h1 className="font-serif text-4xl font-bold">Tulisan yang layak dibaca.</h1>
                 <p className="mt-3 max-w-xl text-white">
@@ -36,12 +38,12 @@ export default function PostIndex({ posts, filters }) {
                     {posts.data.map((p) => (
                         <Link key={p.id} href={`/articles/${p.slug}`} className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
                             {p.cover_url ? (
-                                <img src={p.cover_url} alt="" className="h-44 w-full object-cover" />
+                                <img src={p.cover_url} alt={p.title} className="h-44 w-full object-cover" />
                             ) : (
                                 <div className="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-100 to-violet-100 font-serif text-4xl text-indigo-700">{p.category[0]}</div>
                             )}
                             <div className="p-5">
-                                <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">{p.category}</span>
+                                <span className="text-xs font-semibold uppercase tracking-wide text-indigo-700">{p.category}</span>
                                 <h2 className="mt-1 font-serif text-lg font-bold group-hover:text-indigo-700">{p.title}</h2>
                                 <p className="mt-2 line-clamp-3 text-sm text-slate-600">{p.excerpt}</p>
                                 <div className="mt-3 text-xs text-slate-600">{p.user?.name} · {fmtDate(p.published_at)}</div>
