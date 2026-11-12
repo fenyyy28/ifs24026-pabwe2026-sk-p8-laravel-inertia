@@ -13,7 +13,15 @@ export default function PostShow({ post }) {
             <span className="mt-4 block text-xs font-semibold uppercase tracking-wide text-indigo-600">{post.category}</span>
             <h1 className="mt-1 font-serif text-4xl font-bold leading-tight">{post.title}</h1>
             <div className="mt-3 text-sm text-slate-600">Oleh {post.user?.name} · {fmtDate(post.published_at)}</div>
-            {post.cover_url && <img src={post.cover_url} alt="" className="mt-6 w-full rounded-xl object-cover" />}
+            {post.cover_url && (
+                <img
+                    src={post.cover_url}
+                    alt={post.title}
+                    fetchPriority="high"
+                    loading="eager"
+                    className="mt-6 max-h-96 w-full rounded-xl object-cover"
+                />
+            )}
             <div className="mt-8"><MarkdownViewer value={post.content} /></div>
 
             <aside className="mt-12 rounded-2xl bg-indigo-50 p-8 text-center">

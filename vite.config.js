@@ -17,13 +17,18 @@ export default defineConfig({
         chunkSizeWarningLimit: 1500,
         rollupOptions: {
             output: {
-                manualChunks: {
-                    // React core — cached terpisah, jarang berubah
-                    'vendor-react': ['react', 'react-dom'],
-                    // Inertia
-                    'vendor-inertia': ['@inertiajs/react'],
-                    // Markdown editor (besar, lazy-loadable)
-                    'vendor-md-editor': ['@uiw/react-md-editor', '@uiw/react-markdown-preview'],
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        // Hanya library dasar (Inertia + React) yang dimasukkan ke chunk core
+                        if (
+                            id.includes('/react/') ||
+                            id.includes('/react-dom/') ||
+                            id.includes('/scheduler/') ||
+                            id.includes('/@inertiajs/')
+                        ) {
+                            return 'vendor-core';
+                        }
+                    }
                 },
             },
         },

@@ -35,10 +35,19 @@ export default function PostIndex({ posts, filters }) {
                 <p className="rounded-xl border border-dashed border-slate-300 bg-white p-10 text-center text-slate-500">Belum ada artikel yang cocok.</p>
             ) : (
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {posts.data.map((p) => (
+                    {posts.data.map((p, idx) => (
                         <Link key={p.id} href={`/articles/${p.slug}`} className="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:shadow-md">
                             {p.cover_url ? (
-                                <img src={p.cover_url} alt={p.title} className="h-44 w-full object-cover" />
+                                <img
+                                    src={p.cover_url}
+                                    alt={p.title}
+                                    width="400"
+                                    height="176"
+                                    loading={idx === 0 ? 'eager' : 'lazy'}
+                                    fetchPriority={idx === 0 ? 'high' : 'auto'}
+                                    decoding="async"
+                                    className="h-44 w-full object-cover"
+                                />
                             ) : (
                                 <div className="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-100 to-violet-100 font-serif text-4xl text-indigo-700">{p.category[0]}</div>
                             )}
