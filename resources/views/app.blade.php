@@ -11,7 +11,10 @@
     @inertiaHead
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
-    <div id="boot" style="padding:2rem;font:16px/1.5 Georgia,serif;color:#1e293b">BlogVerse Pro — memuat halaman…</div>
+    <main id="boot" style="padding:2rem;font:16px/1.5 Georgia,serif;color:#1e293b">
+        <h1 style="margin:0 0 .5rem;font-size:1.5rem">BlogVerse Pro</h1>
+        <p style="margin:0">Memuat halaman…</p>
+    </main>
     @inertia
 </body>
 </html>
