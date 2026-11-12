@@ -36,9 +36,9 @@ export default function PostFormModal({ open, onClose, post = null }) {
             formId="post-form"
             processing={form.processing}
             submitLabel="Simpan"
-            headerClass={editing ? 'bg-amber-600 text-white' : 'bg-indigo-700 text-white'}
+            headerClass={editing ? 'bg-amber-700 text-white' : 'bg-indigo-700 text-white'}
             footerClass={editing ? 'bg-amber-50 border-amber-200' : 'bg-indigo-50 border-indigo-200'}
-            submitClass={editing ? 'bg-amber-600 hover:bg-amber-700' : 'bg-indigo-600 hover:bg-indigo-700'}
+            submitClass={editing ? 'bg-amber-700 hover:bg-amber-800' : 'bg-indigo-600 hover:bg-indigo-700'}
         >
             <form id="post-form" onSubmit={submit} className="space-y-4">
                 <div>

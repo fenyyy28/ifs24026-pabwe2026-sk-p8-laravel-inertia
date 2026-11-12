@@ -37,7 +37,7 @@ export default function AiGeneratorModal({ open, onClose, maxAi }) {
             processing={form.processing}
             headerClass="bg-violet-700 text-white"
             footerClass="bg-violet-50 border-violet-200"
-            submitClass="bg-violet-600 hover:bg-violet-700"
+            submitClass="bg-violet-700 hover:bg-violet-800"
         >
             <form id="ai-form" onSubmit={generate} className="grid gap-4 sm:grid-cols-[1fr_8rem]">
                 <div>
@@ -56,7 +56,7 @@ export default function AiGeneratorModal({ open, onClose, maxAi }) {
                 <div className="mt-8">
                     <div className="mb-3 flex items-center justify-between">
                         <h3 className="font-semibold">Hasil ({items.length} artikel)</h3>
-                        <button type="button" onClick={saveAll} disabled={saving} className="inline-flex items-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 disabled:opacity-60">
+                        <button type="button" onClick={saveAll} disabled={saving} className="inline-flex items-center gap-2 rounded-lg bg-emerald-700 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-800 disabled:opacity-60">
                             {saving && <Spinner />} Simpan Semua sebagai Draf
                         </button>
                     </div>
@@ -64,7 +64,7 @@ export default function AiGeneratorModal({ open, onClose, maxAi }) {
                         {items.map((it, i) => (
                             <li key={i} className="rounded-lg border border-slate-200 p-4">
                                 <div className="font-medium">{it.title}</div>
-                                <div className="text-xs text-violet-600">{it.category}</div>
+                                <div className="text-xs text-violet-800">{it.category}</div>
                                 <p className="mt-1 text-sm text-slate-600">{it.excerpt}</p>
                             </li>
                         ))}

@@ -36,14 +36,14 @@ export default function UserList({ users, filters }) {
                         {users.data.map((u) => (
                             <tr key={u.id}>
                                 <td className="px-4 py-3"><div className="font-medium">{u.name}</div><div className="text-xs text-slate-500">@{u.username}</div></td>
-                                <td className="px-4 py-3"><span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${u.role === 'admin' ? 'bg-rose-100 text-rose-700' : 'bg-slate-100 text-slate-700'}`}>{u.role}</span></td>
+                                <td className="px-4 py-3"><span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${u.role === 'admin' ? 'bg-rose-100 text-rose-900' : 'bg-slate-100 text-slate-800'}`}>{u.role}</span></td>
                                 <td className="px-4 py-3">{u.published_posts_count} / {u.posts_count} terbit</td>
                                 <td className="flex flex-wrap justify-end gap-3 px-4 py-3">
                                     <Link href={`/admin/users/${u.id}/posts`} className="text-indigo-600 hover:underline">Artikel</Link>
                                     <a href={`/admin/users/${u.id}/posts/export`} className="text-indigo-600 hover:underline">Ekspor</a>
                                     {u.id !== auth.user.id && (
                                         <>
-                                            <button type="button" onClick={() => toggleRole(u)} className="text-amber-600 hover:underline">{u.role === 'admin' ? 'Jadikan member' : 'Jadikan admin'}</button>
+                                            <button type="button" onClick={() => toggleRole(u)} className="text-amber-800 hover:underline">{u.role === 'admin' ? 'Jadikan member' : 'Jadikan admin'}</button>
                                             <button type="button" onClick={() => remove(u)} className="text-red-600 hover:underline">Hapus</button>
                                         </>
                                     )}

@@ -27,7 +27,7 @@ export default function Index({ posts, stats, filters, maxAi }) {
                 <h1 className="font-serif text-2xl font-bold">Artikel Saya</h1>
                 <div className="flex flex-wrap gap-2">
                     <button type="button" onClick={() => setModal('create')} className={`${btn} bg-indigo-600 text-white hover:bg-indigo-700`}>+ Tulis Artikel</button>
-                    <button type="button" onClick={() => setModal('ai')} className={`${btn} bg-violet-600 text-white hover:bg-violet-700`}>✨ AI Generator</button>
+                    <button type="button" onClick={() => setModal('ai')} className={`${btn} bg-violet-700 text-white hover:bg-violet-800`}>✨ AI Generator</button>
                     <button type="button" onClick={() => setModal('import')} className={`${btn} border border-slate-300 bg-white hover:bg-slate-50`}>Impor Excel</button>
                     <a href="/dashboard/posts/export" className={`${btn} border border-slate-300 bg-white hover:bg-slate-50`}>Ekspor Excel</a>
                 </div>

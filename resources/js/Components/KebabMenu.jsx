@@ -18,7 +18,7 @@ export default function KebabMenu({ detailHref, onEdit, onDelete }) {
 
     return (
         <div className="relative">
-            <button type="button" aria-label="Menu tindakan" onClick={() => setOpen(!open)} className="rounded-full p-2 text-xl leading-none text-slate-500 hover:bg-slate-100">
+            <button type="button" aria-label="Menu tindakan" onClick={() => setOpen(!open)} className="rounded-full p-2 text-xl leading-none text-slate-600 hover:bg-slate-100">
                 ⋮
             </button>
             {open && (

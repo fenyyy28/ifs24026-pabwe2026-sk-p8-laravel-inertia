@@ -12,7 +12,7 @@ export default function PostIndex({ posts, filters }) {
             <Head title="Beranda" />
             <section className="mb-10 rounded-2xl bg-gradient-to-br from-indigo-700 to-violet-600 px-8 py-12 text-white">
                 <h1 className="font-serif text-4xl font-bold">Tulisan yang layak dibaca.</h1>
-                <p className="mt-3 max-w-xl text-indigo-100">
+                <p className="mt-3 max-w-xl text-white">
                     BlogVerse Pro adalah platform publikasi artikel: baca bebas tanpa akun, atau bergabung sebagai penulis dan terbitkan gagasanmu.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -38,13 +38,13 @@ export default function PostIndex({ posts, filters }) {
                             {p.cover_url ? (
                                 <img src={p.cover_url} alt="" className="h-44 w-full object-cover" />
                             ) : (
-                                <div className="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-100 to-violet-100 font-serif text-4xl text-indigo-300">{p.category[0]}</div>
+                                <div className="flex h-44 items-center justify-center bg-gradient-to-br from-indigo-100 to-violet-100 font-serif text-4xl text-indigo-700">{p.category[0]}</div>
                             )}
                             <div className="p-5">
                                 <span className="text-xs font-semibold uppercase tracking-wide text-indigo-600">{p.category}</span>
                                 <h2 className="mt-1 font-serif text-lg font-bold group-hover:text-indigo-700">{p.title}</h2>
                                 <p className="mt-2 line-clamp-3 text-sm text-slate-600">{p.excerpt}</p>
-                                <div className="mt-3 text-xs text-slate-400">{p.user?.name} · {fmtDate(p.published_at)}</div>
+                                <div className="mt-3 text-xs text-slate-600">{p.user?.name} · {fmtDate(p.published_at)}</div>
                             </div>
                         </Link>
                     ))}

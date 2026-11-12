@@ -20,10 +20,10 @@ export default function Show({ post }) {
             <Link href="/dashboard/posts" className="text-sm text-indigo-600 hover:underline">← Kembali</Link>
             <div className="mt-3 flex flex-wrap items-start justify-between gap-3">
                 <h1 className="font-serif text-3xl font-bold">{post.title}</h1>
-                <button type="button" onClick={() => setEditing(true)} className="rounded-lg bg-amber-600 px-4 py-2 text-sm font-medium text-white hover:bg-amber-700">Ubah</button>
+                <button type="button" onClick={() => setEditing(true)} className="rounded-lg bg-amber-700 px-4 py-2 text-sm font-medium text-white hover:bg-amber-800">Ubah</button>
             </div>
             <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-slate-500">
-                <span className="rounded bg-indigo-50 px-2 py-0.5 text-indigo-700">{post.category}</span>
+                <span className="rounded bg-indigo-50 px-2 py-0.5 text-indigo-800">{post.category}</span>
                 <StatusBadge published={post.is_published} />
                 <span>Dibuat {fmtDate(post.created_at)}</span>
                 {post.is_published && <Link href={`/articles/${post.slug}`} className="text-indigo-600 hover:underline">Lihat di publik</Link>}

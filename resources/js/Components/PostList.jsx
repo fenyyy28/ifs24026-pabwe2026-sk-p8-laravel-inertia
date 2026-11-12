@@ -6,7 +6,7 @@ export const fmtDate = (iso) =>
 
 export function StatusBadge({ published }) {
     return (
-        <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${published ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}`}>
+        <span className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${published ? 'bg-emerald-100 text-emerald-900' : 'bg-amber-100 text-amber-900'}`}>
             {published ? 'Terbit' : 'Draf'}
         </span>
     );
@@ -25,12 +25,12 @@ export default function PostList({ posts, showAuthor = false, onEdit, onDelete, 
                     {post.cover_url ? (
                         <img src={post.cover_url} alt="" className="h-12 w-16 rounded-md object-cover" />
                     ) : (
-                        <div className="flex h-12 w-16 items-center justify-center rounded-md bg-slate-100 text-xs text-slate-400">No img</div>
+                        <div className="flex h-12 w-16 items-center justify-center rounded-md bg-slate-100 text-xs text-slate-600">No img</div>
                     )}
                     <div className="min-w-0 flex-1">
                         <div className="truncate font-medium text-slate-900">{post.title}</div>
                         <div className="mt-1 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-                            <span className="rounded bg-indigo-50 px-2 py-0.5 text-indigo-700">{post.category}</span>
+                            <span className="rounded bg-indigo-50 px-2 py-0.5 text-indigo-800">{post.category}</span>
                             <StatusBadge published={post.is_published} />
                             {showAuthor && post.user && <span>oleh {post.user.name}</span>}
                             <span>{fmtDate(post.created_at)}</span>

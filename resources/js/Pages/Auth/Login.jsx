@@ -16,7 +16,7 @@ export default function Login() {
         <div className="mx-auto max-w-md rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
             <Head title="Masuk" />
             <h1 className="font-serif text-2xl font-bold">Masuk</h1>
-            <p className="mt-1 text-sm text-slate-500">Masuk untuk mengelola artikelmu.</p>
+            <p className="mt-1 text-sm text-slate-600">Masuk untuk mengelola artikelmu.</p>
             <form onSubmit={submit} className="mt-6 space-y-4">
                 <div>
                     <label htmlFor="login-username" className="text-sm font-medium">Username</label>
@@ -35,7 +35,7 @@ export default function Login() {
                     {form.processing && <Spinner />} Masuk
                 </button>
             </form>
-            <p className="mt-6 text-center text-sm text-slate-500">Belum punya akun? <Link href="/register" className="font-medium text-indigo-600 hover:underline">Daftar</Link></p>
+            <p className="mt-6 text-center text-sm text-slate-600">Belum punya akun? <Link href="/register" className="font-medium text-indigo-600 hover:underline">Daftar</Link></p>
         </div>
     );
 }

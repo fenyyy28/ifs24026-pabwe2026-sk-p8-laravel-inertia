@@ -23,7 +23,7 @@ export default function PublicLayout({ children }) {
                                 <span className="flex h-8 w-8 items-center justify-center overflow-hidden rounded-full bg-indigo-100 text-sm font-bold text-indigo-700" title={user.name}>
                                     {user.photo_url ? <img src={user.photo_url} alt="" className="h-full w-full object-cover" /> : user.name[0]}
                                 </span>
-                                <button type="button" onClick={() => router.post('/logout')} className="px-2 text-sm text-slate-500 hover:text-rose-600">Keluar</button>
+                                <button type="button" onClick={() => router.post('/logout')} className="px-2 text-sm text-slate-600 hover:text-rose-700">Keluar</button>
                             </>
                         ) : (
                             <>
@@ -41,7 +41,7 @@ export default function PublicLayout({ children }) {
             </main>
 
             <footer className="border-t border-slate-200 bg-white">
-                <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-slate-500 sm:flex-row">
+                <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-slate-600 sm:flex-row">
                     <span className="font-serif text-slate-700">{appName} — ruang menulis & membaca.</span>
                     <div className="flex gap-5">
                         <Link href="/" className="hover:text-indigo-600">Beranda Publik</Link>

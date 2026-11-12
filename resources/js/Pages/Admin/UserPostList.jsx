@@ -11,7 +11,7 @@ export default function UserPostList({ author, posts, stats, filters }) {
             <Head title={`Artikel ${author.name}`} />
             <Link href="/admin/users" className="text-sm text-indigo-600 hover:underline">← Pengguna</Link>
             <div className="mb-6 mt-2 flex flex-wrap items-center justify-between gap-3">
-                <h1 className="font-serif text-2xl font-bold">Artikel {author.name} <span className="text-base font-normal text-slate-500">@{author.username}</span></h1>
+                <h1 className="font-serif text-2xl font-bold">Artikel {author.name} <span className="text-base font-normal text-slate-600">@{author.username}</span></h1>
                 <a href={`/admin/users/${author.id}/posts/export`} className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium hover:bg-slate-50">Ekspor Excel</a>
             </div>
             <StatCards stats={stats} />

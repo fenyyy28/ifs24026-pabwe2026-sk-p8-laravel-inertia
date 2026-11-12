@@ -12,6 +12,10 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
+    build: {
+        sourcemap: true,
+        chunkSizeWarningLimit: 1500,
+    },
     server: {
         watch: { ignored: ['**/storage/framework/views/**'] },
     },

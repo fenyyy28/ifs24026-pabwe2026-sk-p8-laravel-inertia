@@ -9,11 +9,11 @@ export default function Pagination({ paginator }) {
         <nav className="mt-6 flex items-center justify-between" aria-label="Paginasi">
             {paginator.prev_page_url ? (
                 <Link href={paginator.prev_page_url} className={`${base} border-slate-300 bg-white hover:bg-slate-50`}>← Sebelumnya</Link>
-            ) : <span className={`${base} border-transparent text-slate-300`}>← Sebelumnya</span>}
-            <span className="text-sm text-slate-500">Halaman {paginator.current_page} dari {paginator.last_page}</span>
+            ) : <span className={`${base} border-transparent text-slate-500`}>← Sebelumnya</span>}
+            <span className="text-sm text-slate-600">Halaman {paginator.current_page} dari {paginator.last_page}</span>
             {paginator.next_page_url ? (
                 <Link href={paginator.next_page_url} className={`${base} border-slate-300 bg-white hover:bg-slate-50`}>Berikutnya →</Link>
-            ) : <span className={`${base} border-transparent text-slate-300`}>Berikutnya →</span>}
+            ) : <span className={`${base} border-transparent text-slate-500`}>Berikutnya →</span>}
         </nav>
     );
 }

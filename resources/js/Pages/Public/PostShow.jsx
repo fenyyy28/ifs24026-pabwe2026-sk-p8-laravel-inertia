@@ -12,7 +12,7 @@ export default function PostShow({ post }) {
             <Link href="/articles" className="text-sm text-indigo-600 hover:underline">← Semua artikel</Link>
             <span className="mt-4 block text-xs font-semibold uppercase tracking-wide text-indigo-600">{post.category}</span>
             <h1 className="mt-1 font-serif text-4xl font-bold leading-tight">{post.title}</h1>
-            <div className="mt-3 text-sm text-slate-500">Oleh {post.user?.name} · {fmtDate(post.published_at)}</div>
+            <div className="mt-3 text-sm text-slate-600">Oleh {post.user?.name} · {fmtDate(post.published_at)}</div>
             {post.cover_url && <img src={post.cover_url} alt="" className="mt-6 w-full rounded-xl object-cover" />}
             <div className="mt-8"><MarkdownViewer value={post.content} /></div>
 
