@@ -12,9 +12,18 @@ export default defineConfig({
         react(),
         tailwindcss(),
     ],
+    esbuild: {
+        drop: ['console', 'debugger'],
+        legalComments: 'none',
+    },
     build: {
+        target: 'es2022',
         sourcemap: true,
         chunkSizeWarningLimit: 1500,
+        cssMinify: true,
+        modulePreload: {
+            polyfill: false,
+        },
         rollupOptions: {
             output: {
                 manualChunks(id) {
